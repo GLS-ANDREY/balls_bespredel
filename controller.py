@@ -1,6 +1,8 @@
 import pygame,model,random
 
 pygame.key.set_repeat(10)
+slovari = pygame.event.custom_type()
+
 
 def allsobitiya():
     global slovari
@@ -14,12 +16,10 @@ def allsobitiya():
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_UP:
             model.sharik_per_second += 1
-            slovari = pygame.event.custom_type()
             pygame.time.set_timer(slovari, int(1000 / model.sharik_per_second))
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_DOWN and model.sharik_per_second >= 1:
             model.sharik_per_second -= 1
-            slovari = pygame.event.custom_type()
             if model.sharik_per_second != 0:
                 pygame.time.set_timer(slovari, int(1000 / model.sharik_per_second))
 
