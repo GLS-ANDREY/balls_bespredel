@@ -3,7 +3,6 @@ import pygame,model,random
 pygame.key.set_repeat(10)
 slovari = pygame.event.custom_type()
 
-
 def allsobitiya():
     global slovari
     s = pygame.event.get()

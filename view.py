@@ -1,6 +1,7 @@
 import pygame,model,random
 
 
+
 pygame.init()
 font = pygame.font.SysFont("arial", 20, True)
 
@@ -15,6 +16,12 @@ def risovanie():
 
     for infa_sharik in model.all_sharik:
         pygame.draw.circle(display,infa_sharik["color"],infa_sharik["coord"],infa_sharik["radius"])
+
+
+
+        infa_sharik["coord"]+=1
+
+
 
     if model.visible_settings == True:
         all_nadpisi = [
