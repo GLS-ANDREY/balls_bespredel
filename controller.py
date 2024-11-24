@@ -3,6 +3,9 @@ import pygame,model,random
 pygame.key.set_repeat(10)
 slovari = pygame.event.custom_type()
 
+speed_ball = pygame.event.custom_type()
+pygame.time.set_timer(speed_ball,10)
+
 def allsobitiya():
     global slovari
     s = pygame.event.get()
@@ -10,6 +13,11 @@ def allsobitiya():
     for a in s:
         if a.type == pygame.QUIT:
             exit()
+
+        for infa_sharik2 in model.all_sharik:
+            if a.type == speed_ball and len(model.all_sharik) >= 1:
+                infa_sharik2["coord"][0] += 1
+
         if a.type == pygame.KEYDOWN and a.key == pygame.K_ESCAPE:
             model.visible_settings = not model.visible_settings
 
@@ -29,5 +37,3 @@ def allsobitiya():
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_DELETE:
             model.all_sharik.clear()
-
-

@@ -14,8 +14,6 @@ def risovanie():
 
     for infa_sharik in model.all_sharik:
         pygame.draw.circle(display, infa_sharik["color"], infa_sharik["coord"], infa_sharik["radius"])
-        #TODO: Строка с увеличением скорости шарика находиться в форе, а фор перекладывает щарики в другую переменную, так что чем больше шариков тем больше раз увеличивается скорость шарика на 0.1
-        model.all_sharik[0]["coord"][0] += 0.1
 
     if model.visible_settings == True:
         all_nadpisi = [
