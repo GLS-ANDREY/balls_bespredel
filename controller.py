@@ -14,8 +14,10 @@ def allsobitiya():
         if a.type == pygame.QUIT:
             exit()
 
-        if a.type == speed_ball:
+
+        if a.type == speed_ball and model.mode == False:
             model.dvizhenie_sharov()
+            model.otbivka_sharov()
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_ESCAPE:
             model.visible_settings = not model.visible_settings
@@ -32,8 +34,14 @@ def allsobitiya():
         if model.sharik_per_second >= 1 and a.type == slovari:
             sharik = {"color": [random.randint(50, 230), random.randint(50, 230), random.randint(50, 230)],
                       "coord": [random.randint(20, 700), random.randint(20, 700)], "radius": random.randint(5, 20),
-                      "speedx": random.randint(1,5),"speedy": random.randint(1,5)}
+                      "speedx": random.randint(1,5),"speedy": random.randint(1,5),"speedy_padenie": 2}
             model.all_sharik.append(sharik)
+
+        if a.type == pygame.KEYDOWN and a.key == pygame.K_s:
+            model.mode = True
+
+        if a.type == speed_ball and model.mode == True:
+            model.padenie_sharov()
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_DELETE:
             model.all_sharik.clear()
