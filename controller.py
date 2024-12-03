@@ -14,6 +14,8 @@ def allsobitiya():
         if a.type == pygame.QUIT:
             exit()
 
+        if a.type == pygame.MOUSEMOTION:
+            model.prizhok_x = a.pos[0]
 
         if a.type == speed_ball and model.mode == False:
             model.dvizhenie_sharov()

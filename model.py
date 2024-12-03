@@ -1,5 +1,6 @@
 import pygame, random
 
+prizhok_x = 400
 mode = False
 all_sharik = []
 sharik_per_second = 0
@@ -36,16 +37,17 @@ def padenie_sharov():
             infa_sharik["speedy_padenie"] = -2
             infa_sharik["coord"][1] = 750 - infa_sharik["radius"]
 
-        if infa_sharik["coord"][0] >= 400 and infa_sharik["coord"][0] <= 500 and infa_sharik["coord"][1] >= 750 - \
+        if infa_sharik["coord"][0] >= prizhok_x and infa_sharik["coord"][0] <= prizhok_x+100 and infa_sharik["coord"][1] >= 750 - \
                 infa_sharik["radius"]:
-            l = infa_sharik["coord"][0] - 400
-            l = l * 0.02
-            infa_sharik["speedy_padenie"] = -4 + l
+            l = infa_sharik["coord"][0] - prizhok_x
+            l = l * 0.06
+            infa_sharik["speedy_padenie"] = -8 + l
 
-        if infa_sharik["coord"][0] > 300 and infa_sharik["coord"][0] <= 400 and infa_sharik["coord"][1] >= 750 - \
+        if infa_sharik["coord"][0] > prizhok_x-100 and infa_sharik["coord"][0] <= prizhok_x and infa_sharik["coord"][1] >= 750 - \
                 infa_sharik["radius"]:
-            l = 400 - infa_sharik["coord"][0]
-            l = l * 0.02
-            infa_sharik["speedy_padenie"] = -4 + l
+            l = prizhok_x - infa_sharik["coord"][0]
+            l = l * 0.06
+            infa_sharik["speedy_padenie"] = -8 + l
+            infa_sharik["coord"][0] += 200
 
         infa_sharik["speedy_padenie"] += 0.05
