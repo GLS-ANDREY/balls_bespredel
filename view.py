@@ -21,9 +21,9 @@ def risovanie():
             "Вверх - +шарики в секунду",
             "Вниз - -шарики в секунду",
             "Del - Удалить все шарики",
-            "S - Притягивает все шарики к полу",
             "Шариков в секунду:" + str(model.sharik_per_second),
-            "Всего шариков:" + str(len(model.all_sharik))
+            "Всего шариков:" + str(len(model.all_sharik)),
+            "Режимы: 1 - Падение"
         ]
 
         for all_nadpisi_zapis in all_nadpisi:
