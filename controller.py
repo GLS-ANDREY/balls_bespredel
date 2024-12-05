@@ -6,6 +6,7 @@ slovari = pygame.event.custom_type()
 speed_ball = pygame.event.custom_type()
 pygame.time.set_timer(speed_ball, 10)
 
+
 def allsobitiya():
     global slovari
     s = pygame.event.get()
@@ -36,14 +37,26 @@ def allsobitiya():
         if model.sharik_per_second >= 1 and a.type == slovari:
             sharik = {"color": [random.randint(50, 230), random.randint(50, 230), random.randint(50, 230)],
                       "coord": [random.randint(20, 700), random.randint(20, 700)], "radius": random.randint(5, 20),
-                      "speedx": random.randint(1,5),"speedy": random.randint(1,5),"speedy_padenie": 0}
+                      "speedx": random.randint(1, 5), "speedy": random.randint(1, 5), "speedy_padenie": 0,
+                      "speedx_stop": 0, "speedy_stop": 0}
             model.all_sharik.append(sharik)
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_1:
-            model.mode = True
+            model.mode = 1
+        if a.type == pygame.KEYDOWN and a.key == pygame.K_2:
+            model.mode = 2
+        if a.type == pygame.KEYDOWN and a.key == pygame.K_3:
+            model.mode = 3
 
-        if a.type == speed_ball and model.mode == True:
+        if a.type == speed_ball and model.mode == 1:
             model.padenie_sharov()
+
+        if a.type == speed_ball and model.mode == 2:
+            model.sharik_stop()
+
+        if a.type == speed_ball and model.mode == 3:
+            model.dvizhenie_sharov()
+            model.otbivka_sharov()
 
         if a.type == pygame.KEYDOWN and a.key == pygame.K_DELETE:
             model.all_sharik.clear()

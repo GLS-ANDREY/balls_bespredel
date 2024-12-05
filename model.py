@@ -1,7 +1,7 @@
 import pygame, random
 
 prizhok_x = 400
-mode = False
+mode = 3
 all_sharik = []
 sharik_per_second = 0
 alpha = 180
@@ -48,6 +48,11 @@ def padenie_sharov():
             l = prizhok_x - infa_sharik["coord"][0]
             l = l * 0.06
             infa_sharik["speedy_padenie"] = -8 + l
-            infa_sharik["coord"][0] += 200
 
         infa_sharik["speedy_padenie"] += 0.05
+
+def sharik_stop():
+    for infa_sharik in all_sharik:
+        infa_sharik["coord"][0] += infa_sharik["speedx_stop"]
+        infa_sharik["coord"][1] += infa_sharik["speedy_stop"]
+

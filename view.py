@@ -23,7 +23,11 @@ def risovanie():
             "Del - Удалить все шарики",
             "Шариков в секунду:" + str(model.sharik_per_second),
             "Всего шариков:" + str(len(model.all_sharik)),
-            "Режимы: 1 - Падение"
+            "Режимы:",
+            "1 - Падение",
+            "2 - Стоп ",
+            "3 - Свободный полет"
+
         ]
 
         for all_nadpisi_zapis in all_nadpisi:
